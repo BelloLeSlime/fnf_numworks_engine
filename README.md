@@ -75,7 +75,7 @@ mod = Mod(
         (50,20), #The position of the name label
         f.RectImage([0,0,320,222,0,0,0,0,0,320,222,225,225,225]) #Another plain gray image for the menu
     ),
-    None #
+    None #The script
 )
 ```
 - To add a song, you must first define the characters, the stage and the arrow set of this song
