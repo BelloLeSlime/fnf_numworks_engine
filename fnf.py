@@ -1,3 +1,4 @@
+#v0.1
 from kandinsky import *
 from ion import *
 from time import *
