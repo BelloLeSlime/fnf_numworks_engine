@@ -3,8 +3,8 @@ class RectImage:
     self.image=image
   def grey_scale(self):
     grey=[]
-    for i in range(len(self.image)/7):
-      color = min(((self.image[i*7+4]+self.image[i*7+5]+self.image[i*7+6])/3)+50,255)
+    for i in range(int(len(self.image)/7)):
+      color = int(min(((self.image[i*7+4]+self.image[i*7+5]+self.image[i*7+6])/3)+50,255))
       grey+=[self.image[i*7],self.image[i*7+1],self.image[i*7+2],self.image[i*7+3],color,color,color]
     return RectImage(grey)
 class Chart:

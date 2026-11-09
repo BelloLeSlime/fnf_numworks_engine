@@ -14,7 +14,7 @@ There is:
 - customizable menu
 - multiple songs support
 - script feature (to code mechanics or visual effect)
-- full controll on the stage
+- full control on the stage
 - an image and chart editor
 - moving camera system
 - optimization so the game can run at 12 FPS

@@ -43,7 +43,7 @@ class Drawer:
         rects=el[1].image
         og_w=rects[2]
         coef_w=og_w/el[4]
-        for i in range(len(rects)/7):
+        for i in range(int(len(rects)/7)):
           if i==0:
             continue
           fill_rect(int((rects[i*7]/coef_w)+el[2]-self.camera.x*el[5]),int((rects[i*7+1]/coef_w)+el[3]-self.camera.y*el[5]),int(max(rects[i*7+2]/coef_w,1)),int(max(rects[i*7+3]/coef_w,1)),color(rects[i*7+4],rects[i*7+5],rects[i*7+6]))
