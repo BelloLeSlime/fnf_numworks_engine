@@ -1,2 +1,4 @@
 kandinsky
 ion-numworks
+playsound3 #for desktop
+pygame #for desktop

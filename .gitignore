@@ -3,3 +3,7 @@
 .env
 mods/
 run/
+export.txt
+export.py
+*.json
+__pycache__/

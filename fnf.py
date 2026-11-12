@@ -1,4 +1,4 @@
-#v0.1
+#v0.1.1
 from kandinsky import *
 from ion import *
 from time import *
@@ -66,7 +66,7 @@ class Game:
       for i in range(4):
         self.drawer.display_image(song.arrows[i].grey_scale(),25*(i+1),25,24,camera=False)
       self.drawer.fill_rect(58,198,204,14,(0,0,0),camera=False)
-      self.drawer.fill_rect(60,200,100+self.rel_score if song.rvrs else 100-rel_score,10,song.player.color if song.rvrs else song.opp.color,camera=False)
+      self.drawer.fill_rect(60,200,100+self.rel_score if song.rvrs else 100-self.rel_score,10,song.player.color if song.rvrs else song.opp.color,camera=False)
       self.drawer.display_image(song.player.icon if song.rvrs else song.opp.icon,118+self.rel_score if song.rvrs else 118-self.rel_score,180,40)
       self.drawer.fill_rect(160+self.rel_score if song.rvrs else 160-self.rel_score,200,100-self.rel_score if song.rvrs else 100+self.rel_score,10,song.opp.color if song.rvrs else song.player.color,camera=False)
       self.drawer.display_image(song.opp.icon if song.rvrs else song.player.icon,162+self.rel_score if song.rvrs else 162-self.rel_score,180,40)
