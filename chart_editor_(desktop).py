@@ -1,22 +1,22 @@
 """
-Chart editor - version PC (pygame)
-Port de la version NumWorks.
+Chart editor - PC version
+Portage of the Numworks version
 
-Notes (sur le personnage sélectionné, Opponent ou Player)
-  flèches ................ pose / retire une note à la position courante
-  Shift + flèches ........ pose / retire une note longue (hold)
-                           Haut = TOOLBOX, Gauche = IMAGINARY,
-                           Bas = COMMA, Droite = POWER
+Notes (on the selected character, Opponent or Player)
+  arrows ................. toggles a note at current time
+  Shift + arrows ......... toggles a sustain
+                           Up = TOOLBOX, Left = IMAGINARY,
+                           Down = COMMA, Right = POWER
 Navigation
-  A ...................... (SHIFT) recule d'un 16e de temps
-  E ...................... (EXP)   avance d'un 16e de temps
-  Espace ................. (ALPHA) change de personnage
+  A ...................... (SHIFT) moves backward
+  E ...................... (EXP)   moves forward
+  Space .................. (ALPHA) switches selected character
 Autres
-  Échap .................. (SQUARE) changer le BPM (console)
-  Ctrl + S ............... (EXE)    export (console + export.txt)
-  = ...................... (XNT)    importer un Chart de files.py (console)
+  Escap .................. (SQUARE) changes the BPM
+  Ctrl + S ............... (EXE)    exports
+  = ...................... (XNT)    imports a chart from files.py
 
-Fait entièrement par Claude, inspiré de chart_editor.py
+Entirely made by Claude, inspired from chart_editor.py
 """
 import math
 import pygame

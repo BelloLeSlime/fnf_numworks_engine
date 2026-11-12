@@ -47,9 +47,16 @@ All you need to do is downloading `fnf.py`, `input\_manager.py`, `drawer.py` and
 It needs `input_manager.py`, `files.py` and `drawer.py`.
 -# note that you will need to make a rectangle that covers all of your image and put it in the very back: it will not be displayed and is for scaling
 
+Alternatively, you can use the desktop version, which is a pygame portage, so you still can draw on PC.
+However, this version is vibecoded since I was way too lazy to recreate all my work, so take your AI slop.
+
 `chart_editor.py` is, well, a chart editor. You can put notes with the **ARROWS**, and going down or up using **SHIFT** and **EXP**. To change the selected character, press **ALPHA**. **XNT** imports, **EXE** exports and **SQUARE** changes the BPM (don't change it when there are notes already, it may break). To add sustain, press **TOOLBOX**, **IMAGINARY**, **COMMA** or **POWER**. Same as the image editor, you must copy the lines and paste them in `files.py` when you export. However, don't make the full chart, make little parts (like 1000c at max) and make them individual charts (`chart1=Chart(...)`	`chart2=Chart(...)`	`chart3=Chart(...)`) and then fuse them (`chart = chart1.fuse(chart2).fuse(chart3)`). Remember to put the BPM and the speed (`chart=Chart([...], 96, 0.1)`).
 It needs `input_manager.py`, `files.py` with left, down, up and right arrows images and `drawer.py`.
 
+Alternatively, you can use the desktop version (which is also AI generated) so you can make charts for Numworks Engine. Or, you can build or take a Psych Engine / Forever Engine / FNF (old charting system) and put it in `psych_to_numworks.py` (also made with BelloBot :c)
+
+For both of the desktop versions, there is a mini tutorial at the header of the py file.
+Also don't use `psych_to_numworks.py` if you want your chart to fit in the calculator: it doesn't care about optimization, or remove the spaces of new lines after that.
 
 
 ### How can I make a mod?

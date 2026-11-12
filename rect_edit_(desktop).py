@@ -1,28 +1,28 @@
 """
-Éditeur d'images par rectangles - version PC (pygame)
-Port de la version NumWorks.
+Image editor using rectangles - PC version
+Portage of the Numworks version
 
-Souris
-  clic gauche ........ (OK)       dessiner un rectangle (maintenir + glisser)
-  clic molette ....... (POWER)    déplacer le rectangle sous le curseur
-  clic droit ......... (SQUARE)   redimensionner (coin le plus proche)
-  bouton latéral 4 ... (BACKSPACE) supprimer le rectangle sous le curseur
-  bouton latéral 5 ... (COMMA)    appliquer la couleur choisie au rectangle
-  Shift + bouton 5 ... (SQRT)     prélever la couleur sous le curseur
-  molette haut/bas ... (PLUS/MINUS) monter / descendre d'un cran dans l'ordre
-  Shift + molette .... (MULT/DIV) tout devant / tout derrière
+Mouse
+  left click ......... (OK)       draws a rectangle (hold)
+  middle click ....... (POWER)    moves a rectangle
+  right clic ......... (SQUARE)   resizes (closest corner)
+  mouse button 4 ..... (BACKSPACE) deletes
+  mouse button 5 ..... (COMMA)    fills with selected color
+  Shift + button 5 ... (SQRT)     pipette
+  molette up/down .... (PLUS/MINUS) goes up / down in the order
+  Shift + molette .... (MULT/DIV) puts in the very front / the very back
 
-Clavier
-  flèches ............ déplacent le curseur (maintenu = continu)
-  Shift + flèches .... un pixel par appui      Ctrl = pas de 5
-  Alt + flèches ...... (LN/COS/SIN/TAN) décale TOUTES les images d'1 pixel
-  Ctrl + S ........... (EXE)      menu export
-  Échap .............. (TOOLBOX)  réglages (fond / curseur)
-  = .................. (XNT)      importer une RectImage de files.py
-  C .................. (ANS)      choisir la couleur de dessin
-Les menus s'affichent dans la console (comme input() sur la calculatrice).
+Keyboard
+  arrows ............. moves the cursor
+  Shift + arrows ..... one pixel per press     Ctrl = 5 steps at a time
+  Alt + arrows ....... (LN/COS/SIN/TAN) offsets every rectangle
+  Ctrl + S ........... (EXE)      export menu
+  Escap .............. (TOOLBOX)  options
+  = .................. (XNT)      import a RectImage from files.py
+  C .................. (ANS)      select a color
+The menus display in the console
 
-Fait entièrement par Claude, inspiré de rec_edit.py
+Entirely made by Claude, inspired by rect_edit.py
 """
 import pygame
 
