@@ -37,7 +37,7 @@ There is not:
 
 ### How can I play already made FNF mods? 
 
-All you need to do is downloading `fnf.py`, `input\_manager.py`, `drawer.py` and the `files.py` and `fnf\_data.py` aviable in the release section relative to the mod you wanna install. Then, all you need to do is putting them on your calculator and running `fnf.py`.
+All you need to do is downloading `fnf.py`, `input_manager.py`, `drawer.py` and the `files.py` and `fnf_data.py` aviable in the release section relative to the mod you wanna install. Then, all you need to do is putting them on your calculator and running `fnf.py`.
 
 
 
