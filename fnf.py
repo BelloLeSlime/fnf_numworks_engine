@@ -1,10 +1,8 @@
-#v0.1.1
-from kandinsky import *
-from ion import *
+#v0.2
 from time import *
-from fnf_data import *
-from input_manager import *
 from drawer import *
+from input_manager import *
+from fnf_data import *
 class Game:
   r=True
   drawer=Drawer()
@@ -15,10 +13,12 @@ class Game:
   delta=1/max_fps
   current_ms=0
   hit_notes={}
+  p_pose=None
   opp_pose=None
   rel_score=0
   sel=0
   state=0
+  og_t=0
 
   def refresh(self):
     if mod.script:
@@ -45,8 +45,15 @@ class Game:
         if el[0]=="bg":
           self.drawer.display_image(el[1],el[2][0],el[2][1],el[2][2])
         elif el[0]=="player":
-          an="right" if self.in_m.ikp(KEY_RIGHT) else "up" if self.in_m.ikp(KEY_UP) else "down" if self.in_m.ikp(KEY_DOWN) else "left" if self.in_m.ikp(KEY_LEFT) else "idle"
-          self.drawer.display_image(el[1].anim[an],el[2][0],el[2][1],el[2][2])
+          if not self.p_pose:
+            self.drawer.display_image(el[1].anim["idle"], el[2][0], el[2][1], el[2][2])
+          else:
+            pose = "left" if self.p_pose[0] == 4 else "down" if self.p_pose[0] == 5 else "up" if self.p_pose[0] == 6 else "right"
+            self.drawer.display_image(el[1].anim[pose], el[2][0], el[2][1], el[2][2])
+            if self.p_pose[1] > self.delta:
+              self.p_pose = (self.p_pose[0], self.p_pose[1] - self.delta)
+            else:
+              self.p_pose = None
         elif el[0]=="opp":
           if not self.opp_pose:
             self.drawer.display_image(el[1].anim["idle"],el[2][0],el[2][1],el[2][2])
@@ -133,9 +140,9 @@ class Game:
           self.state=5
           self.song_id=self.sel
           song=mod.songs[self.sel]
-          self.current_ms=-4*(1/song.chart.bpm*60000)
           self.rel_score=0
           self.stage=song.stage.copy()
+          self.og_t=monotonic()
           if song.script:
             song.script.awake(self)
           self.refresh()
@@ -175,12 +182,14 @@ class Game:
                   self.hit_notes[str(ms)].append(note)
                 else:
                   self.hit_notes[str(ms)] = [note]
+                self.p_pose=(note,1)
               elif ((note == 14 and self.in_m.ikp(KEY_LEFT)) or (note == 15 and self.in_m.ikp(KEY_DOWN)) or (note == 16 and self.in_m.ikp(KEY_UP)) or (note == 17 and self.in_m.ikp(KEY_RIGHT))) and (self.current_ms-100 <= float(ms) <= self.current_ms+100):
                 self.rel_score = min(self.rel_score+2,100)
                 if str(ms) in self.hit_notes:
                   self.hit_notes[str(ms)].append(note)
                 else:
                   self.hit_notes[str(ms)] = [note]
+                self.p_pose = (note-10, 1)
               elif note in [4,5,6,7] and float(ms) < self.current_ms-200:
                 self.rel_score = max(self.rel_score-6,-100)
                 if str(ms) in self.hit_notes:
@@ -193,18 +202,20 @@ class Game:
                   self.hit_notes[str(ms)].append(note)
                 else:
                   self.hit_notes[str(ms)] = [note]
-                self.opp_pose = (note if note in [0,1,2,3] else note-10,1)
-        self.current_ms += self.delta*1000
+                self.opp_pose=(note if note in [0,1,2,3] else note-10,1)
+        self.current_ms=(monotonic()-self.og_t)*1000
         if song.script:
           song.script.post_update(self,self.delta)
         self.refresh()
       self.drawer.update(self.delta)
       self.drawer.draw()
       if mod.script:
-        mod.script.post_update(self,delta)
+        mod.script.post_update(self,self.delta)
       self.delta = monotonic()-t
       if self.delta < 1/self.max_fps:
         sleep(1/self.max_fps-self.delta)
+        self.delta = 1 / self.max_fps
+
 try:
   g=Game()
 except KeyboardInterrupt:

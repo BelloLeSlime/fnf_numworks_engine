@@ -213,7 +213,7 @@ class frst_script(Script):
   snows=[] #the snow particles
   snow_max=25
   def awake(self,game):
-    game.current_ms=-9100 #starts the song later so there is an intro
+    game.og_t+=9.1 #starts the song later so there is an intro
     for i in range(self.snow_max):
       self.snows.append([randint(0,320),randint(0,222),randint(5,10),randint(5,10),randint(3,8),randint(4,9)]) #spawn random snow particles
   def post_update(self,game,delta):
@@ -269,3 +269,17 @@ And this is how you create a mod.
 ### Why not a .nwa app for more memory?
 
 The original challenge was to do all on calculator (and it is the case). However, due to the lack of memory and what external apps are, I will maybe recreate it in C, C++ or Rust on day.
+
+
+
+### Changelog
+
+v0.1:
+- start of the GitHub
+
+v0.1.1:
+- fix a bug (idk which one)
+
+v0.2:
+- made current_ms not dependant of delta (so the song doesn't get desynchronized)
+- made the player not change poses when you press buttons, but when you hit notes
